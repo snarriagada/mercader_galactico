@@ -6,7 +6,9 @@ y precio de productos.
 
 Para su funcionamiento se requiere correr:
 
-  python main.py input1.txt
+```
+ python main.py input1.txt
+```
 
 Donde el input1.txt debe seguir la estructura dada en el enunciado.
 
