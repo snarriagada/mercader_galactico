@@ -39,7 +39,6 @@ def galactic_to_roman(line, conversion):
     for number in line:
         roman_number.append(conversion[number])
     valid = check_roman_numeral(roman_number)
-    print(valid)
     if not valid : return False
     return roman_number
 

@@ -8,9 +8,15 @@ try:
 except:
     print("An exception ocurred with the .txt input")
 
-error_message = "El input no sigue el formato esperado"
-
 def main(input):
+    """
+    conversion stores the numbers equivalencies:
+      e.g: {'glob': 'I', 'prok': 'V', 'pish': 'X', 'tegj': 'L'}
+    metals_price stores the metals prices for a specific quantity:
+      e.g: {'Silver': [['glob', 'glob'], '34 Credits'], ... }
+    unit_prices stores unit prices of metals:
+      e.g {'Silver': 17.0, 'Gold': 14450.0, 'Iron': 195.5}
+    """
     conversion = {}
     metals_price = {}
     unit_prices = {}
@@ -45,16 +51,9 @@ def main(input):
                 output_lines.append("I have no idea what you are talking about")
         write_output(output_lines)
 
-        #print("conversion: ", conversion)
-        #print("metals prices: ",metals_price)
-        #print("unit prices: ",unit_prices)
-
 def write_output(output_lines):
     with open('output.txt', 'w') as file:
         file.write('\n'.join(output_lines))
     return
                 
-
-
-
 main(input)
