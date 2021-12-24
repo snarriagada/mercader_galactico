@@ -29,18 +29,18 @@ def roman_to_integer(roman_number):
             result += integers[roman_number[i]]
         else:
             result += (integers[roman_number[i+1]] - integers[roman_number[i]])
-            #result -= integers[roman_number[i]]
             i = i+1
         i = i+1
     return result
-
-#roman_to_integer(["M", "C", "M", "I", "I", "I"])
 
 def galactic_to_roman(line, conversion):
     if line[-1] == "?" : line.pop()
     roman_number = []
     for number in line:
         roman_number.append(conversion[number])
+    valid = check_roman_numeral(roman_number)
+    print(valid)
+    if not valid : return False
     return roman_number
 
 
@@ -48,5 +48,17 @@ def save_metal_price(line, metals_price):
     aux = line[0].split(" ")
     metal = aux[-1]
     aux.pop()
-    metals_price[metal] = [aux, line[1]]
+    if len(line) > 1:
+        metals_price[metal] = [aux, line[1]]
+
+def check_roman_numeral(numeral):
+    invalid_numerals = ["DD", "LL", "VV", "IIII", "XXXX", "CCCC", "MMMM",
+    "IL", "IC", "IM", "ID", "XD", "XM", "DM", "LC", "LD", "LM", "VX", "VL",
+    "VC", "VD", "VM"]
+
+    numeral = "".join(numeral)
+    for n in invalid_numerals:
+        if n in numeral:
+            return False
+    return True
 
